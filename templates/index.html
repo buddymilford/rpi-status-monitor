@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../static/css/materialize.min.css" media="screen,projection" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body class="red lighten-5">
+
+    <!--<nav class="light-blue lighten-1" role="navigation">
+			<div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+				<ul class="right hide-on-med-and-down">
+					<li><a href="#">Navbar Link</a></li>
+				</ul>
+
+				<ul id="nav-mobile" class="side-nav">
+					<li><a href="#">Navbar Link</a></li>
+				</ul>
+				<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+			</div>
+		</nav>-->
+
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <br>
+            <br>
+            <div class="header center">
+                <img src="static/images/pilogo.svg.png" style="width:10%; height:auto"/>            
+            </div>
+            <div class="row center">
+                <h5 class="header col s12 light">{{ userName }}@{{ ipAddress }}</h5>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="section">
+
+            <!--   Icon Section   -->
+            <div class="row">
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center light-green-text darken-1">Temperature</h2>
+                        <h5 class="center">{{ temperature }}&deg; F</h5>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center light-green-text darken-1">Disk Usage</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th data-field="filesystem">{{ diskUsageHeader[0] }}</th>
+                                    <th data-field="size">{{ diskUsageHeader[1] }}</th>
+                                    <th data-field="used">{{ diskUsageHeader[2] }}</th>
+                                    <th data-field="available">{{ diskUsageHeader[3] }}</th>
+                                    <th data-field="usePercentage">{{ diskUsageHeader[4] }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ diskUsageInfo[0] }}</td>
+                                    <td>{{ diskUsageInfo[1] }}</td>
+                                    <td>{{ diskUsageInfo[2] }}</td>
+                                    <td>{{ diskUsageInfo[3] }}</td>
+                                    <td>{{ diskUsageInfo[4] }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center light-green-text darken-1">Uptime</h2>
+                        <h5 class="center">{{ upTime[2] }} days, {{ upTime[4][0] }}{{ upTime[4][1] }} hours, {{ upTime[4][3] }}{{ upTime[4][4] }} minutes</h5>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="row">
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center light-green-text darken-1">Memory Usage</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th data-field="total">Size</th>
+                                    <th data-field="used">Used</th>
+                                    <th data-field="free">Avail</th>
+                                    <th data-field="usePercentage">Use %</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ memoryUsageInfo[1] }}MB</td>
+                                    <td>{{ memoryUsageInfo[2] }}MB</td>
+                                    <td>{{ memoryUsageInfo[3] }}MB</td>
+                                    <td>{{ memoryUsePercentage }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <br>
+        <br>
+
+        <div class="section">
+
+        </div>
+    </div>
+
+    <!--<footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>-->
+
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="../static/js/materialize.js"></script>
+
+</body>
+
+</html>
