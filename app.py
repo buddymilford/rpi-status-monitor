@@ -3,15 +3,19 @@ import os
 
 app = Flask(__name__)
 
+def getProcessInfo():
+    response = os.popen('top -b -n1').readlines()
+    return response[1].split()
+
 #function that returns IP Address
 def getIpAddress():
     response = os.popen('hostname -I').readline()
     return response.split()
 
 # function that returns username
-def getUserName():
-    response = os.popen('users').readline()
-    return response
+#def getUserName():
+#    response = os.popen('users').readline()
+#    return response
 
 # function that returns memory usage in MBs
 def getMemoryUsage(lineNumber):
@@ -50,8 +54,9 @@ def index():
                            memoryUsageHeader=getMemoryUsage(0), # array for Memory Usage <th>
                            memoryUsageInfo=getMemoryUsage(1), # array for Memory Usage <td>
                            memoryUsePercentage=round(float(getMemoryUsage(1)[2]) / float(getMemoryUsage(1)[1]), 4) * 100, # percentage of used Memory
-                           userName=getUserName(),
-                           ipAddress=getIpAddress()[0]
+#                           userName=getUserName(),
+                           ipAddress=getIpAddress()[0],
+                           processInfo=getProcessInfo()
                           )
 
 if __name__ == '__main__':

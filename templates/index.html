@@ -9,6 +9,7 @@
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rpi-status-monitor</title>
 </head>
 
 <body class="red lighten-5">
@@ -34,7 +35,7 @@
                 <img src="static/images/pilogo.svg.png" style="width:10%; height:auto"/>            
             </div>
             <div class="row center">
-                <h5 class="header col s12 light">{{ userName }}@{{ ipAddress }}</h5>
+                <h5 class="header col s12 light">{{ ipAddress }}</h5>
             </div>
         </div>
     </div>
@@ -46,6 +47,7 @@
             <!--   Icon Section   -->
             <div class="row">
 
+                <!-- temperature -->
                 <div class="col s12 m4">
                     <div class="icon-block">
                         <h2 class="center light-green-text darken-1">Temperature</h2>
@@ -53,6 +55,7 @@
                     </div>
                 </div>
 
+                <!-- disk usage -->
                 <div class="col s12 m4">
                     <div class="icon-block">
                         <h2 class="center light-green-text darken-1">Disk Usage</h2>
@@ -79,6 +82,7 @@
                     </div>
                 </div>
                 
+                <!-- uptime -->
                 <div class="col s12 m4">
                     <div class="icon-block">
                         <h2 class="center light-green-text darken-1">Uptime</h2>
@@ -88,8 +92,10 @@
 
             </div>
             
+            <!-- second row -->
             <div class="row">
 
+                <!-- memory usage -->
                 <div class="col s12 m4">
                     <div class="icon-block">
                         <h2 class="center light-green-text darken-1">Memory Usage</h2>
@@ -108,6 +114,33 @@
                                     <td>{{ memoryUsageInfo[2] }}MB</td>
                                     <td>{{ memoryUsageInfo[3] }}MB</td>
                                     <td>{{ memoryUsePercentage }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Process Info -->
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center light-green-text darken-1">Tasks</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th data-field="total">Total</th>
+                                    <th data-field="used">Running</th>
+                                    <th data-field="sleep">Sleeping</th>
+                                    <th data-field="stopped">Stopped</th>
+                                    <th data-field="zombie">Zombie</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ processInfo[1] }}</td>
+                                    <td>{{ processInfo[3] }}</td>
+                                    <td>{{ processInfo[5] }}</td>
+                                    <td>{{ processInfo[7] }}</td>
+                                    <td>{{ processInfo[9] }}</td>
                                 </tr>
                             </tbody>
                         </table>
