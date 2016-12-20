@@ -20,8 +20,13 @@ def getMemoryUsage(lineNumber):
 
 # function that returns how long the raspberry pi has been running
 def getUptime():
-    response = os.popen('uptime').readline() # reads the response as an array of strings for each line
-    return response.split()
+    response = os.popen('cat /proc/uptime').readline().split() # reads the response as an array of strings for each line
+    minutes = int(float(response[0])/60)
+    time = [0, 0, 0]
+    time[0] = int(minutes / 24 / 60) # get days
+    time[1] = int(minutes /60 % 24) # get hours
+    time[2] = minutes % 60 # get minutes
+    return time
 
 # function that returns disk usage
 def getDiskUsage(lineNumber):
