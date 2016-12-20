@@ -5,6 +5,7 @@ Flask Dashboard built with Python that displays status information about the ras
 * **app.py** is our servlet, which runs using Flask (http://flask.pocoo.org/). Install it by running: 
 
   `sudo apt-get install python3-flask`
+
 ## Starting the servlet: ##
 * change to the **rpi-status-monitor** directory
 * From the command line:
