@@ -38,16 +38,24 @@ def getDiskUsage(lineNumber):
 	return response[lineNumber].split() # splits a specific line into an array of words based on lineNumber
 
 # function that returns cpu temperature in fahrenheit
-def getTemperature():
+def getFahrenheit():
 	response = os.popen('vcgencmd measure_temp').readline() # get the response from running the command 'vcgencmd measure_temp'
 	celsius = float(response.replace("temp=","").replace("'C\n","")) # get rid of 'temp=' and ''C'
 	fahrenheit = round(((celsius * (9/5)) + 32),1) # convert from fahrenheit to celsius rounded to one decimal place
 	return fahrenheit
 
+# function that returns cpu temperature in celsius
+def getCelsius():
+	response = os.popen('vcgencmd measure_temp').readline() # get the response from running the command 'vcgencmd measure_temp'
+	celsius = float(response.replace("temp=","").replace("'C\n","")) # get rid of 'temp=' and ''C'
+	celsius = round(celsius,1) # celsius rounded to one decimal place
+	return celsius
+
 @app.route('/')
 def index():
 	return render_template('index.html', 
-                           temperature=getTemperature(),
+                           fahrenheit=getFahrenheit(),
+                           celsius=getCelsius(),
                            diskUsageHeader=getDiskUsage(0), # array for Disk Usage <th>
                            diskUsageInfo=getDiskUsage(1), # array for Disk Usage <td>
                            upTime=getUptime(), # how long the raspberry pi has been running
